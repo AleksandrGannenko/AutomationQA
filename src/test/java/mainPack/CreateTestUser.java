@@ -22,10 +22,10 @@ public class CreateTestUser {
         webDriver.findElement(By.xpath(".//a[contains(text(),'Log In')]")).click();
 
         webDriver.findElement(By.xpath(".//input[@id='email']")).clear();
-        webDriver.findElement(By.xpath(".//input[@id='email']")).sendKeys("ion.aop.fbdev@ionidea.com");
+        webDriver.findElement(By.xpath(".//input[@id='email']")).sendKeys("test");
 
         webDriver.findElement(By.xpath(".//input[@id='pass']")).clear();
-        webDriver.findElement(By.xpath(".//input[@id='pass']")).sendKeys("rojoh2DooZieB3om");
+        webDriver.findElement(By.xpath(".//input[@id='pass']")).sendKeys("test");
 
         webDriver.findElement(By.xpath(".//button[@id='loginbutton']")).click();
 
