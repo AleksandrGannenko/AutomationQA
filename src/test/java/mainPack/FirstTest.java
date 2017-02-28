@@ -55,7 +55,5 @@ public class FirstTest {
         Assert.assertTrue(webDriver.findElement(By.xpath(".//h3")).isDisplayed());
 
         webDriver.quit();
-
     }
-
 }
