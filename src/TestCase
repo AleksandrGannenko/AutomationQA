@@ -1,36 +1,59 @@
-TC: Verify that after clicking 'Зарегистрироваться' button registration page is displayed
+TC#: Check list: Verify all GUI elements on home page
 Steps:
-    1.  Go to 'http://v3.test.itpmgroup.com/login'
-    2.  Click 'Зарегистрироваться' button
-Expected result: 'v3.test.itpmgroup.com/register.html' page is displayed
+    1. "Главная" button
+    2. "Новости" button
+    3. "Доставка и оплата" button
+    4. "О нас" button
+    5. "Валюта" button
+    6. "UAH - гривны" button
+    7. "USD - Доллары" button
+    8. "RUB - Рубли" button
+    9. "EUR - Евро" button
+    10. "Languages" dropdown
+    11. "English" dropdown
+    12. "Русский" dropdown
+    13. "Authorization" dropdown
+    14. "Вход" dropdown
+    15. "Регистрация" dropdown
+    16. "Корзина" button
+    17. "Logo" button
+    18. "Iphone" button
+    19. "Samsung" button
+    20. "Lenovo" button
+    21. "Meizu" button
+    22. "Xiaomi" button
+    23. "Search" input
+    24. "Search" button
+Expected result: All elements are present
 
-TC: Verify that existing user is not able to log in with invalid password
+TC#: Verify that new user can register
 Steps:
-    1.  Go to 'http://v3.test.itpmgroup.com/login'
-    2.  Put 'yy401@bigmir.net' value into 'Email' input
-    3.  Put any invalid value into 'Password' input (f.ex. '90909')
-    4.  Click 'Enter' button
-Expected result: Error message is displayed: "Invalid username or password"
+    1. Go to 'http://23076.gollos.com/'
+    2. In "Authorization" dropdown select "Регистрация"
+    3. Put value 'newmail@mailinator.com' into 'E-mail' input
+    4. Put value 'password' into "Пароль" input
+    5. Put value 'password' into "Пароль (повтор)" input
+    6. Unselect "Получать рассылку о новинках и акциях" checkbox
+    7. Click "Отправить" button
+Expected result: Profile for new user is successfully created. Check in admin panel.
 
-TC: Verify that user can delete previously added item in 'Обслуживание' list
+TC#: Verify that existing user can log in
 Steps:
-    1.  Go to 'http://v3.test.itpmgroup.com/login'
-    2.  Put 'yy401@bigmir.net' value into 'Email' input
-    3.  Put '909090' value into 'Password' input
-    4.  Click 'Enter' button
-    5.  Click 'Обслуживание' button
-    6.  Click 'Add' button
-    7.  Put 'NewChange' value into 'Service changes' input
-    8.  Put 'NewOperation' value into 'Service operations' input
-    9.  Select value '13' in date dropdown
-    10. Select value 'июня' in month dropdown
-    11. Select value '2012' in year dropdown
-    12. Select value '23' in hour dropdown
-    13. Select value '59' in minutes dropdown
-    14. Select value 'testSA' in 'Аппарат' dropdown
-    15. Select value 'Petrenko Petro Petrovych' in 'Сотрудник' dropdown
-    16. Click 'Создать' button
-    17. Click on previously added item
-    18. Click on 'Удалить' button
-    19. Click 'Yes' on dialog 'Do you really want to delete this item?'
-Expected result: Previously added item is not presented in 'Обслуживание' list
+    1. Go to 'http://23076.gollos.com'
+    2. In "Authorization" dropdown select "Вход"
+    3. Put value 'newmail@mailinator.com' into 'E-mail' input
+    4. Put value 'password' into "Пароль" input
+    5. Click "Войти" button
+Expected result: User successfully logged in
+
+TC#: Verify that at least one item is presented in "Meizu" section
+Steps:
+    1. Go to 'http://23076.gollos.com/'
+    2. Click "Meizu" button
+Expected result: At least one item is presented
+
+TC#: Verify that at least one item is presented in "Samsung" section
+Steps:
+    1. Go to 'http://23076.gollos.com/'
+    2. Click "Samsung" button
+Expected result: At least one item is presented
