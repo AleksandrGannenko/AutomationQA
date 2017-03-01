@@ -51,8 +51,7 @@ public class FirstTest {
         webDriver.findElement(By.xpath(".//div[@class='box-body table-responsive no-padding']//..//td[contains(text(),'13.06.2012 23:59')]")).click();
         webDriver.findElement(By.xpath(".//button[@name='delete']")).click();
 
-        //Assert.assertFalse(webDriver.findElement(By.xpath(".//div[@class='box-body table-responsive no-padding']//..//td[contains(text(),'13.06.2012 23:59')]")).isDisplayed());
-        Assert.assertTrue(webDriver.findElement(By.xpath(".//h3")).isDisplayed());
+        Assert.assertTrue(webDriver.findElements(By.xpath(".//div[@class='box-body table-responsive no-padding']//..//td[contains(text(),'13.06.2012 23:59')]")).size() == 0);
 
         webDriver.quit();
     }
