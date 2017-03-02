@@ -13,7 +13,7 @@ public class LogInWithInvalidPassword extends ParentTest {
     }
 
     @Test
-    public void validLogOn() {
+    public void logInWithInvalidPassword() {
         driver.get("http://v3.test.itpmgroup.com");
 
         driver.findElement(By.name("_username")).clear();
@@ -27,5 +27,4 @@ public class LogInWithInvalidPassword extends ParentTest {
         checkAC("Avatar not present ", driver.findElement(By.xpath(".//div[@class='pull-left image']//img[@class='img-circle']"))
                 .isDisplayed(), true);
     }
-
 }
