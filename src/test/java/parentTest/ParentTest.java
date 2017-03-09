@@ -15,6 +15,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import pages.RegistrationPage;
 
 import java.io.File;
 import java.util.Arrays;
@@ -34,6 +35,7 @@ public class ParentTest {
     private String pathToScreenShot;
     private String browser;
 
+    protected RegistrationPage registrationPage;
 
     public ParentTest(String browser) {
         this.browser = browser;
@@ -94,6 +96,8 @@ public class ParentTest {
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        registrationPage = new RegistrationPage(driver);
 
 
     }
