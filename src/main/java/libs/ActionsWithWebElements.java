@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
 
 public class ActionsWithWebElements {
     private WebDriver driver;
@@ -32,6 +33,18 @@ public class ActionsWithWebElements {
         }
     }
 
+    /**
+     * Method to click on first element in specific section
+     */
+    public void clickIndexItemInSection() {
+        try {
+            clickElement(".//section[@id='category']/article[2]//img");
+        } catch (Exception e) {
+            logger.error("First item is not available");
+            Assert.fail("First item is not available");
+        }
+    }
+
     public void open(String url) {
         try {
             driver.get(url);
@@ -45,6 +58,21 @@ public class ActionsWithWebElements {
         try {
             driver.findElement(By.xpath(xpath));
             return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Method checked is element present on page
+     *
+     * @param xpath
+     * @return
+     */
+    public boolean isElementPresent(String xpath) {
+        try {
+            WebElement webElement = driver.findElement(By.xpath(xpath));
+            return webElement.isDisplayed() && webElement.isEnabled();
         } catch (Exception e) {
             return false;
         }

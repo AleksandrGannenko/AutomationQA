@@ -1,5 +1,6 @@
 package parentTest;
 
+import libs.ActionsWithWebElements;
 import libs.Utils;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -15,6 +16,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import pages.HomePage;
+import pages.IphonePage;
+import pages.LoginPage;
 import pages.RegistrationPage;
 
 import java.io.File;
@@ -35,7 +39,11 @@ public class ParentTest {
     private String pathToScreenShot;
     private String browser;
 
+    protected ActionsWithWebElements actionsWithWebElements;
     protected RegistrationPage registrationPage;
+    protected LoginPage loginPage;
+    protected HomePage homePage;
+    protected IphonePage iphonePage;
 
     public ParentTest(String browser) {
         this.browser = browser;
@@ -44,9 +52,9 @@ public class ParentTest {
     @Parameterized.Parameters
     public static Collection testData() {
         return Arrays.asList(new Object[][]{
-//                {"fireFox"}
+                {"fireFox"}
 //                ,
-                {"chrome"}
+//                {"chrome"}
 //                ,
 //                { "iedriver" }
 //                ,
@@ -97,7 +105,11 @@ public class ParentTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
+        actionsWithWebElements = new ActionsWithWebElements(driver);
         registrationPage = new RegistrationPage(driver);
+        loginPage = new LoginPage(driver);
+        homePage = new HomePage(driver);
+        iphonePage = new IphonePage(driver);
 
 
     }
