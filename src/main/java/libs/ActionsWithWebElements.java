@@ -58,9 +58,20 @@ public class ActionsWithWebElements {
         }
     }
 
+    /**
+     * Method to click on hidden element in drop down (for ex.)
+     *
+     * @param xpath
+     */
     public void clickHiddenDropDownElement(String xpath) {
-        WebElement hiddenWebElement = driver.findElement(By.xpath(xpath));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click()", hiddenWebElement);
+        try {
+            WebElement hiddenWebElement = driver.findElement(By.xpath(xpath));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click()", hiddenWebElement);
+        } catch (Exception e) {
+            logger.error("Can not work with hidden element");
+            Assert.fail("Can not work with hidden element");
+        }
+
     }
 
     public void clickElement(String xpath) {

@@ -43,8 +43,6 @@ public class RegistrationPage extends ParentPage {
 
     /**
      * Method to enter valid email of registered user into input
-     *
-     * @param email
      */
     public void enterValidEmailRegisteredUser() {
         try {

@@ -13,11 +13,9 @@ public class BuyIphoneTest extends ParentTest {
         homePage.openHomePage();
         homePage.clickIphoneSection();
         iphonePage.sortFirstExpensive();
-        //        iphonePage.sortFirstExpensive();
         iphonePage.clickFirstItemInSection();
         iphonePage.enterIphoneQuantity("5");
-        actionsWithWebElements.clickElementInPopUp
-                (".//div[@class='qty']/..//a", ".//div[@class='qty']/..//a");
+        buyPopUpPage.clickGoToCartButton();
         cartPage.clickCheckoutButton();
 
         //checkAC();
