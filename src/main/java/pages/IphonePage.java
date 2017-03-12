@@ -10,12 +10,39 @@ public class IphonePage extends ParentPage {
         super(driver);
     }
 
+    public void enterIphoneQuantity(String quantity) {
+        try {
+            actionsWithWebElements.enterText(".//div[@class='qty']/input", quantity);
+        } catch (Exception e) {
+            logger.error("Can not enter quantity of phones");
+            Assert.fail("Can not enter quantity of phones");
+        }
+    }
+
+    public void clickBuyIphone() {
+        try {
+            actionsWithWebElements.clickElement(".//div[@class='qty']/..//a");
+        } catch (Exception e) {
+            logger.error("Can not click to buy iphone");
+            Assert.fail("Can not click to buy iphone");
+        }
+    }
+
+    public void clickFirstItemInSection() {
+        try {
+            actionsWithWebElements.clickElement(".//*[@id='category']/article[2]//img");
+        } catch (Exception e) {
+            logger.error("Can not click on first item");
+            Assert.fail("Can not click on first item");
+        }
+    }
+
     /**
      * Method to sort items by price (low first)
      */
     public void sortFirstCheap() {
         try {
-            actionsWithWebElements.clickElement(".//a[text()='цене (с меньшей)']");
+            actionsWithWebElements.clickHiddenDropDownElement(".//a[text()='цене (с меньшей)']");
         } catch (Exception e) {
             logger.error("Can not sort by cheap");
             Assert.fail("Can not sort by cheap");
@@ -27,7 +54,7 @@ public class IphonePage extends ParentPage {
      */
     public void sortFirstExpensive() {
         try {
-            actionsWithWebElements.clickElement(".//a[@href='/iphone?sort=priced']");
+            actionsWithWebElements.clickHiddenDropDownElement(".//a[text()='цене (с большей)']");
         } catch (Exception e) {
             logger.error("Can not sort by expensive");
             Assert.fail("Can not sort by expensive");
@@ -39,7 +66,7 @@ public class IphonePage extends ParentPage {
      */
     public void sortFirstNew() {
         try {
-            actionsWithWebElements.clickElement(".//a[text()='новинки']");
+            actionsWithWebElements.clickHiddenDropDownElement(".//a[text()='новинки']");
         } catch (Exception e) {
             logger.error("Can not sort by new items");
             Assert.fail("Can not sort by new items");
@@ -51,7 +78,7 @@ public class IphonePage extends ParentPage {
      */
     public void sortFirstAvailable() {
         try {
-            actionsWithWebElements.clickElement(".//a[text()='наличию']");
+            actionsWithWebElements.clickHiddenDropDownElement(".//a[text()='наличию']");
         } catch (Exception e) {
             logger.error("Can not sort by available");
             Assert.fail("Can not sort by available");

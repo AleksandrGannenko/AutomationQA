@@ -16,10 +16,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import pages.HomePage;
-import pages.IphonePage;
-import pages.LoginPage;
-import pages.RegistrationPage;
+import pages.*;
 
 import java.io.File;
 import java.util.Arrays;
@@ -44,6 +41,7 @@ public class ParentTest {
     protected LoginPage loginPage;
     protected HomePage homePage;
     protected IphonePage iphonePage;
+    protected CartPage cartPage;
 
     public ParentTest(String browser) {
         this.browser = browser;
@@ -52,9 +50,9 @@ public class ParentTest {
     @Parameterized.Parameters
     public static Collection testData() {
         return Arrays.asList(new Object[][]{
-                {"fireFox"}
+//                {"fireFox"}
 //                ,
-//                {"chrome"}
+                {"chrome"}
 //                ,
 //                { "iedriver" }
 //                ,
@@ -110,6 +108,7 @@ public class ParentTest {
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         iphonePage = new IphonePage(driver);
+        cartPage = new CartPage(driver);
 
 
     }
@@ -146,6 +145,5 @@ public class ParentTest {
     private void setTestPass() {
         isTestPass = true;
     }
-
 
 }
