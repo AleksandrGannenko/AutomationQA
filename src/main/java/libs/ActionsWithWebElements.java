@@ -83,17 +83,17 @@ public class ActionsWithWebElements {
         }
     }
 
-    /**
-     * Method to click on first element in specific section
-     */
-    public void clickIndexItemInSection() {
-        try {
-            clickElement(".//section[@id='category']/article[2]//img");
-        } catch (Exception e) {
-            logger.error("First item is not available");
-            Assert.fail("First item is not available");
-        }
-    }
+//    /**
+//     * Method to click on first element in specific section
+//     */
+//    public void clickIndexItemInSection() {
+//        try {
+//            clickElement(".//section[@id='category']/article[2]//img");
+//        } catch (Exception e) {
+//            logger.error("First item is not available");
+//            Assert.fail("First item is not available");
+//        }
+//    }
 
     public void open(String url) {
         try {

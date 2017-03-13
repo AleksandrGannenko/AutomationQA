@@ -17,7 +17,7 @@ public class RegistrationTest extends ParentTest {
 
     @Test
     public void isEmailRequiredErrorDisplayed() {
-        registrationPage.openRegistrationPage();
+        registrationPage.openRegPage();
         registrationPage.enterValidPasswordsValue();
         registrationPage.clickSendButton();
 

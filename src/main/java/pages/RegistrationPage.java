@@ -11,6 +11,11 @@ public class RegistrationPage extends ParentPage {
 
     // === OPEN PAGE ===
 
+
+    public void openRegPage() {
+        open("http://23076.gollos.com/register");
+    }
+
     /**
      * Method to open registration page
      */

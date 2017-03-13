@@ -70,7 +70,7 @@ public class LoginPage extends ParentPage {
 
     public void logUser() {
         try {
-            actionsWithWebElements.open("http://23076.gollos.com/login");
+            open("http://23076.gollos.com/login");
             enterEmail("qa.gannenko@gmail.com");
             enterPassword("gannenko");
             clickLoginButton();
