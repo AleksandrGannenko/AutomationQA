@@ -43,7 +43,7 @@ public class IphonePage extends ParentPage {
 
     public void clickBuyIphone() {
         try {
-            buyItem.click();
+            actionsWithWebElements.clickElement(buyItem);
         } catch (Exception e) {
             logger.error("Can not click to buy iphone");
             Assert.fail("Can not click to buy iphone");
@@ -52,7 +52,7 @@ public class IphonePage extends ParentPage {
 
     public void clickFirstItemInSection() {
         try {
-            firstItemInSection.click();
+            actionsWithWebElements.clickElement(firstItemInSection);
         } catch (Exception e) {
             logger.error("Can not click on first item");
             Assert.fail("Can not click on first item");

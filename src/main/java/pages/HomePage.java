@@ -35,7 +35,7 @@ public class HomePage extends ParentPage {
      */
     public void clickLoginLink() {
         try {
-            loginLink.click();
+            actionsWithWebElements.clickElement(loginLink);
         } catch (Exception e) {
             logger.error("Can not click on log in link");
             Assert.fail("Can not click on log in link");
@@ -47,7 +47,7 @@ public class HomePage extends ParentPage {
      */
     public void clickRegisterLink() {
         try {
-            registerLink.click();
+            actionsWithWebElements.clickElement(registerLink);
         } catch (Exception e) {
             logger.error("Can not click on registration link");
             Assert.fail("Can not click on registration link");
@@ -71,7 +71,7 @@ public class HomePage extends ParentPage {
      */
     public void clickIphoneSection() {
         try {
-            iphoneSectionLink.click();
+            actionsWithWebElements.clickElement(iphoneSectionLink);
         } catch (Exception e) {
             logger.error("Can not click on Iphone section link");
             Assert.fail("Can not click on Iphone section link");
@@ -83,7 +83,7 @@ public class HomePage extends ParentPage {
      */
     public void clickSamsungSection() {
         try {
-            samsungSectionLink.click();
+            actionsWithWebElements.clickElement(samsungSectionLink);
         } catch (Exception e) {
             logger.error("Can not click on Samsung section link");
             Assert.fail("Can not click on Samsung section link");
@@ -95,7 +95,7 @@ public class HomePage extends ParentPage {
      */
     public void clickMeizuSection() {
         try {
-            meizuSectionLink.click();
+            actionsWithWebElements.clickElement(meizuSectionLink);
         } catch (Exception e) {
             logger.error("Can not click on Meizu section link");
             Assert.fail("Can not click on Meizu section link");
@@ -107,7 +107,7 @@ public class HomePage extends ParentPage {
      */
     public void clickXiaomiSection() {
         try {
-            xiaomiSectionLink.click();
+            actionsWithWebElements.clickElement(xiaomiSectionLink);
         } catch (Exception e) {
             logger.error("Can not click on Xiaomi section link");
             Assert.fail("Can not click on Xiaomi section link");

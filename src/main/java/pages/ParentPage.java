@@ -50,19 +50,28 @@ public class ParentPage {
         }
     }
 
-//    /**
-//     * Method to check that text is present on page
-//     *
-//     * @param xpath
-//     * @param expectedText
-//     */
-//    public void checkTextOnPage(String xpath, String expectedText) {
-//        try {
-//            Assert.assertThat("Text is not displayed", driver.findElement(By.xpath(xpath)).getText(), is(expectedText));
-//        } catch (Exception e) {
-//            logger.error("Can not find text on page");
-//            Assert.fail("Can not find text on page");
-//        }
-//    }
+    /**
+     * Method to get title of the page
+     *
+     * @return
+     */
+    public String getTitle() {
+        return driver.getTitle();
+    }
+
+    /**
+     * Method to check that text is present on page
+     *
+     * @param element
+     * @param expectedText
+     */
+    public void checkTextOnPage(WebElement element, String expectedText) {
+        try {
+            Assert.assertThat("Text is not displayed", element.getText(), is(expectedText));
+        } catch (Exception e) {
+            logger.error("Can not find text on page");
+            Assert.fail("Can not find text on page");
+        }
+    }
 
 }

@@ -19,7 +19,7 @@ public class CartPage extends ParentPage {
      */
     public void clickCheckoutButton() {
         try {
-            checkoutButton.click();
+            actionsWithWebElements.clickElement(checkoutButton);
         } catch (Exception e) {
             logger.error("Can not click on checkout button");
             Assert.fail("Can not click on checkout button");

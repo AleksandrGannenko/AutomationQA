@@ -39,7 +39,7 @@ public class LoginPage extends ParentPage {
      */
     public void clickLoginButton() {
         try {
-            loginButton.click();
+            actionsWithWebElements.clickElement(loginButton);
         } catch (Exception e) {
             logger.error("Can not click on element");
             Assert.fail("Can not click on element");
@@ -103,7 +103,7 @@ public class LoginPage extends ParentPage {
 
     public void logUser() {
         try {
-            open("http://23076.gollos.com/login");
+            open();
             enterEmail("qa.gannenko@gmail.com");
             enterPassword("gannenko");
             clickLoginButton();
@@ -112,6 +112,5 @@ public class LoginPage extends ParentPage {
             Assert.fail("Can not log in");
         }
     }
-
 
 }

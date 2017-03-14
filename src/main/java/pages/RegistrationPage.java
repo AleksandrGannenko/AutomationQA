@@ -74,7 +74,7 @@ public class RegistrationPage extends ParentPage {
      */
     public void enterEmail(String email) {
         try {
-            actionsWithWebElements.enterText(".//input[@id='reg_username']", email);
+            actionsWithWebElements.enterText(emailInput, email);
         } catch (Exception e) {
             logger.error("Can not enter email");
             Assert.fail("Can not enter email");
@@ -88,7 +88,7 @@ public class RegistrationPage extends ParentPage {
      */
     public void enterPassword(String pass) {
         try {
-            passwordInput.sendKeys(pass);
+            actionsWithWebElements.enterText(passwordInput, pass);
         } catch (Exception e) {
             logger.error("Can not enter password");
             Assert.fail("Can not enter password");
@@ -102,7 +102,7 @@ public class RegistrationPage extends ParentPage {
      */
     public void enterConfirmPassword(String confirmPass) {
         try {
-            confirmPasswordInput.sendKeys(confirmPass);
+            actionsWithWebElements.enterText(confirmPasswordInput, confirmPass);
         } catch (Exception e) {
             logger.error("Can not repeat password");
             Assert.fail("Can not repeat password");
@@ -114,7 +114,7 @@ public class RegistrationPage extends ParentPage {
      */
     public void enterValidEmailRegisteredUser() {
         try {
-            actionsWithWebElements.enterText(emailInput, "gannenko.qa@gmail.com");
+            enterEmail("gannenko.qa@gmail.com");
         } catch (Exception e) {
             logger.error("Can not enter email");
             Assert.fail("Can not enter email");
@@ -126,7 +126,7 @@ public class RegistrationPage extends ParentPage {
      */
     public void enterValidEmailNewUser() {
         try {
-            actionsWithWebElements.enterText(emailInput, "gannenko.qa.test@gmail.com");
+            enterEmail("gannenko.qa.test@gmail.com");
         } catch (Exception e) {
             logger.error("Can not enter email");
             Assert.fail("Can not enter email");
@@ -153,7 +153,7 @@ public class RegistrationPage extends ParentPage {
      */
     public void clickRegisterButton() {
         try {
-            registerButton.click();
+            actionsWithWebElements.clickElement(registerButton);
         } catch (Exception e) {
             logger.error("Can not click on element");
             Assert.fail("Can not click on element");
