@@ -2,15 +2,32 @@ package pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends ParentPage {
+
+    @FindBy(xpath = ".//input[@id='username']")
+    WebElement emailInput;
+
+    @FindBy(xpath = ".//input[@id='password']")
+    WebElement passwordInput;
+
+    @FindBy(xpath = ".//input[@id='login']")
+    WebElement loginButton;
+
+    @FindBy(xpath = ".//a[@href='/profile']")
+    WebElement profileLink;
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
-    public void openLoginPage() {
+    // === CLICK ELEMENT ===
+
+    public void open() {
         try {
-            actionsWithWebElements.open("http://23076.gollos.com/login");
+            open("http://23076.gollos.com/login");
         } catch (Exception e) {
             logger.error("Can not open registration page");
             Assert.fail("Can not open registration page");
@@ -18,24 +35,27 @@ public class LoginPage extends ParentPage {
     }
 
     /**
+     * Method to click on Login button in login form
+     */
+    public void clickLoginButton() {
+        try {
+            loginButton.click();
+        } catch (Exception e) {
+            logger.error("Can not click on element");
+            Assert.fail("Can not click on element");
+        }
+    }
+
+    // === ENTER VALUE INTO INPUT ===
+
+    /**
      * Method to enter email in login form
+     *
      * @param email
      */
     public void enterEmail(String email) {
         try {
-            actionsWithWebElements.enterText(".//input[@id='username']", email);
-        } catch (Exception e) {
-            logger.error("Can not enter text");
-            Assert.fail("Can not enter text");
-        }
-    }
-
-    /**
-     * Method to enter email of valid user in login form
-     */
-    public void enterValidEmail() {
-        try {
-            actionsWithWebElements.enterText(".//input[@id='username']", "qa.gannenko@gmail.com");
+            actionsWithWebElements.enterText(emailInput, email);
         } catch (Exception e) {
             logger.error("Can not enter text");
             Assert.fail("Can not enter text");
@@ -49,22 +69,35 @@ public class LoginPage extends ParentPage {
      */
     public void enterPassword(String pass) {
         try {
-            actionsWithWebElements.enterText(".//input[@id='password']", pass);
+            actionsWithWebElements.enterText(passwordInput, pass);
         } catch (Exception e) {
             logger.error("Can not enter text");
             Assert.fail("Can not enter text");
         }
     }
 
-    /**
-     * Method to click on Login button in login form
-     */
-    public void clickLoginButton() {
+    // === ELEMENT IS DISPLAYED ===
+
+    public boolean myCabinetLinkIsDisplayed() {
         try {
-            actionsWithWebElements.clickElement(".//input[@id='login']");
+            actionsWithWebElements.isElementPresent(profileLink);
+            return true;
         } catch (Exception e) {
-            logger.error("Can not click on element");
-            Assert.fail("Can not click on element");
+            return false;
+        }
+    }
+
+    // === ACTIONS WITH VALUES ===
+
+    /**
+     * Method to enter email of valid user in login form
+     */
+    public void enterValidEmail() {
+        try {
+            actionsWithWebElements.enterText(emailInput, "qa.gannenko@gmail.com");
+        } catch (Exception e) {
+            logger.error("Can not enter text");
+            Assert.fail("Can not enter text");
         }
     }
 
@@ -80,13 +113,5 @@ public class LoginPage extends ParentPage {
         }
     }
 
-    public boolean myCabinetLinkIsDisplayed() {
-        try {
-            actionsWithWebElements.isElementPresent(".//a[@href='/profile']");
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
 
 }

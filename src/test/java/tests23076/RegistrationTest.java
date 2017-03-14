@@ -10,77 +10,83 @@ public class RegistrationTest extends ParentTest {
 
     @Test
     public void isRegistrationPageOpened() {
-        registrationPage.openRegistrationPage();
+        registrationPage.open();
 
         checkAC("Registration page is not displayed", registrationPage.isRegistrationPageDisplayed(), true);
     }
 
     @Test
     public void isEmailRequiredErrorDisplayed() {
-        registrationPage.openRegPage();
+        registrationPage.open();
         registrationPage.enterValidPasswordsValue();
-        registrationPage.clickSendButton();
+        registrationPage.clickRegisterButton();
 
         checkAC("Error for required email field is not displayed", registrationPage.isEmailRequiredErrorDisplayed(), true);
     }
 
     @Test
     public void isEmailInUseErrorDisplayed() {
-        registrationPage.openRegistrationPage();
+        registrationPage.open();
         registrationPage.enterValidEmailRegisteredUser();
         registrationPage.enterValidPasswordsValue();
 
-        checkAC("Error for email in use is not displayed", registrationPage.isEmailInUseErrorDisplayed(), true);
+        checkAC("Error for email in use is not displayed", registrationPage.isEmailInUseErrorDisplayed(),
+                true);
     }
 
     @Test
     public void isEmailTypeCorrectErrorDisplayed() {
-        registrationPage.openRegistrationPage();
+        registrationPage.open();
         registrationPage.enterEmail("gannenko.qa");
         registrationPage.enterValidPasswordsValue();
-        registrationPage.clickSendButton();
+        registrationPage.clickRegisterButton();
 
-        checkAC("Error of incorrect email type is not displayed", registrationPage.isEmailTypeCorrectErrorDisplayed(), true);
+        checkAC("Error of incorrect email type is not displayed", registrationPage.isEmailTypeIncorrectErrorDisplayed(),
+                true);
     }
 
     @Test
     public void isEmailFreeNotificationDisplayed() {
-        registrationPage.openRegistrationPage();
+        registrationPage.open();
         registrationPage.enterValidEmailNewUser();
         registrationPage.enterValidPasswordsValue();
 
-        checkAC("Notification that email free is not displayed", registrationPage.isEmailFreeNotificationDisplayed(), true);
+        checkAC("Notification that email free is not displayed", registrationPage.isEmailNotInUseNotificationDisplayed(),
+                true);
     }
 
     @Test
     public void isPasswordRequiredErrorDisplayed() {
-        registrationPage.openRegistrationPage();
+        registrationPage.open();
         registrationPage.enterValidEmailNewUser();
         registrationPage.enterConfirmPassword("909090");
-        registrationPage.clickSendButton();
+        registrationPage.clickRegisterButton();
 
-        checkAC("Error for required password input is not displayed", registrationPage.isPasswordRequiredErrorDisplayed(), true);
+        checkAC("Error for required password input is not displayed", registrationPage.isPasswordRequiredErrorDisplayed(),
+                true);
     }
 
     @Test
     public void isConfirmPasswordRequiredErrorDisplayed() {
-        registrationPage.openRegistrationPage();
+        registrationPage.open();
         registrationPage.enterValidEmailNewUser();
         registrationPage.enterPassword("909090");
-        registrationPage.clickSendButton();
+        registrationPage.clickRegisterButton();
 
-        checkAC("Error for confirm password is not displayed", registrationPage.isConfirmPasswordRequiredErrorDisplayed(), true);
+        checkAC("Error for confirm password is not displayed", registrationPage.isConfirmPasswordRequiredErrorDisplayed(),
+                true);
     }
 
     @Test
     public void doPasswordsMismatch() {
-        registrationPage.openRegistrationPage();
+        registrationPage.open();
         registrationPage.enterValidEmailNewUser();
         registrationPage.enterPassword("909090");
         registrationPage.enterConfirmPassword("090909");
-        registrationPage.clickSendButton();
+        registrationPage.clickRegisterButton();
 
-        checkAC("Error if passwords do not mismatch is not displayed", registrationPage.doPasswordsMismatch(), true);
+        checkAC("Error if passwords do not mismatch is not displayed", registrationPage.doPasswordsMismatch(),
+                true);
     }
 
 }

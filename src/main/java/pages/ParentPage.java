@@ -3,9 +3,9 @@ package pages;
 import libs.ActionsWithWebElements;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import static org.hamcrest.Matchers.is;
 
@@ -19,6 +19,7 @@ public class ParentPage {
         this.driver = driver;
         logger = Logger.getLogger(getClass());
         actionsWithWebElements = new ActionsWithWebElements(driver);
+        PageFactory.initElements(driver, this);
     }
 
     /**

@@ -12,7 +12,7 @@ public class BuyIphoneTest extends ParentTest {
     public void buyExpensiveIphone() {
         homePage.openHomePage();
         homePage.clickIphoneSection();
-        iphonePage.sortFirstExpensive();
+        iphonePage.clickSortFirstExpensive();
         iphonePage.clickFirstItemInSection();
         iphonePage.enterIphoneQuantity("5");
         buyPopUpPage.clickGoToCartButton();

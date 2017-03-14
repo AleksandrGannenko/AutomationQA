@@ -6,9 +6,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -32,17 +29,27 @@ public class ActionsWithWebElements {
         }
     }
 
+    public void enterText(WebElement element, String text) {
+        try {
+            element.clear();
+            element.sendKeys(text);
+        } catch (Exception e) {
+            logger.error("Can not enter text");
+            Assert.fail("Can not enter text");
+        }
+    }
+
     /**
      * Method to locate main window and
      * to click on element in pop up window
      *
-     * @param mainWindowsElementXpath
+     * @param mainWindowElementXpath
      * @param subWindowElementXpath
      */
-    public void clickElementInPopUp(String mainWindowsElementXpath, String subWindowElementXpath) {
+    public void clickElementInPopUp(String mainWindowElementXpath, String subWindowElementXpath) {
         try {
             String mainWindowHandle = driver.getWindowHandle();
-            clickElement(mainWindowsElementXpath);
+            clickElement(mainWindowElementXpath);
             Set s = driver.getWindowHandles();
             Iterator ite = s.iterator();
             while (ite.hasNext()) {
@@ -52,6 +59,32 @@ public class ActionsWithWebElements {
                 }
             }
             clickElement(subWindowElementXpath);
+        } catch (Exception e) {
+            logger.error("Can not work with pop up window");
+            Assert.fail("Can not work with pop up window");
+        }
+    }
+
+    /**
+     * Method to locate main window and
+     * to click on subElement in pop up window
+     *
+     * @param element
+     * @param subElement
+     */
+    public void clickElementInPopUp(WebElement element, WebElement subElement) {
+        try {
+            String mainWindowHandle = driver.getWindowHandle();
+            element.click();
+            Set s = driver.getWindowHandles();
+            Iterator ite = s.iterator();
+            while (ite.hasNext()) {
+                String popupHandle = ite.next().toString();
+                if (!popupHandle.contains(mainWindowHandle)) {
+                    driver.switchTo().window(popupHandle);
+                }
+            }
+            subElement.click();
         } catch (Exception e) {
             logger.error("Can not work with pop up window");
             Assert.fail("Can not work with pop up window");
@@ -71,7 +104,21 @@ public class ActionsWithWebElements {
             logger.error("Can not work with hidden element");
             Assert.fail("Can not work with hidden element");
         }
+    }
 
+    /**
+     * Method to click on hidden element in drop down (for ex.)
+     *
+     * @param element
+     */
+    public void clickHiddenDropDownElement(WebElement element) {
+        try {
+            WebElement hiddenWebElement = element;
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click()", hiddenWebElement);
+        } catch (Exception e) {
+            logger.error("Can not work with hidden element");
+            Assert.fail("Can not work with hidden element");
+        }
     }
 
     public void clickElement(String xpath) {
@@ -104,14 +151,14 @@ public class ActionsWithWebElements {
         }
     }
 
-    public boolean elementIsDisplayed(String xpath) {
-        try {
-            driver.findElement(By.xpath(xpath));
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
+//    public boolean elementIsDisplayed(String xpath) {
+//        try {
+//            driver.findElement(By.xpath(xpath));
+//            return true;
+//        } catch (Exception e) {
+//            return false;
+//        }
+//    }
 
     /**
      * Method checked is element present on page
@@ -123,6 +170,20 @@ public class ActionsWithWebElements {
         try {
             WebElement webElement = driver.findElement(By.xpath(xpath));
             return webElement.isDisplayed() && webElement.isEnabled();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Method checked is element present on page
+     *
+     * @param element
+     * @return
+     */
+    public boolean isElementPresent(WebElement element) {
+        try {
+            return element.isDisplayed() && element.isEnabled();
         } catch (Exception e) {
             return false;
         }

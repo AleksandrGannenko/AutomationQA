@@ -2,8 +2,30 @@ package pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends ParentPage{
+public class HomePage extends ParentPage {
+
+    @FindBy(xpath = ".//a[@href='/login']")
+    WebElement loginLink;
+
+    @FindBy(xpath = ".//a[@href='/register']")
+    WebElement registerLink;
+
+    @FindBy(xpath = ".//a[@href='http://23076.gollos.com/iphone']")
+    WebElement iphoneSectionLink;
+
+    @FindBy(xpath = ".//a[@href='http://23076.gollos.com/samsung']")
+    WebElement samsungSectionLink;
+
+    @FindBy(xpath = ".//a[@href='http://23076.gollos.com/meizu']")
+    WebElement meizuSectionLink;
+
+    @FindBy(xpath = ".//a[@href='http://23076.gollos.com/xiaomi']")
+    WebElement xiaomiSectionLink;
+
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -13,7 +35,7 @@ public class HomePage extends ParentPage{
      */
     public void clickLoginLink() {
         try {
-            actionsWithWebElements.clickElement(".//a[@href='/login']");
+            loginLink.click();
         } catch (Exception e) {
             logger.error("Can not click on log in link");
             Assert.fail("Can not click on log in link");
@@ -25,7 +47,7 @@ public class HomePage extends ParentPage{
      */
     public void clickRegisterLink() {
         try {
-            actionsWithWebElements.clickElement(".//a[@href='/register']");
+            registerLink.click();
         } catch (Exception e) {
             logger.error("Can not click on registration link");
             Assert.fail("Can not click on registration link");
@@ -49,8 +71,8 @@ public class HomePage extends ParentPage{
      */
     public void clickIphoneSection() {
         try {
-            actionsWithWebElements.clickElement(".//a[@href='http://23076.gollos.com/iphone']");
-        } catch (Exception e){
+            iphoneSectionLink.click();
+        } catch (Exception e) {
             logger.error("Can not click on Iphone section link");
             Assert.fail("Can not click on Iphone section link");
         }
@@ -61,8 +83,8 @@ public class HomePage extends ParentPage{
      */
     public void clickSamsungSection() {
         try {
-            actionsWithWebElements.clickElement(".//a[@href='http://23076.gollos.com/samsung']");
-        } catch (Exception e){
+            samsungSectionLink.click();
+        } catch (Exception e) {
             logger.error("Can not click on Samsung section link");
             Assert.fail("Can not click on Samsung section link");
         }
@@ -73,8 +95,8 @@ public class HomePage extends ParentPage{
      */
     public void clickMeizuSection() {
         try {
-            actionsWithWebElements.clickElement(".//a[@href='http://23076.gollos.com/meizu']");
-        } catch (Exception e){
+            meizuSectionLink.click();
+        } catch (Exception e) {
             logger.error("Can not click on Meizu section link");
             Assert.fail("Can not click on Meizu section link");
         }
@@ -85,8 +107,8 @@ public class HomePage extends ParentPage{
      */
     public void clickXiaomiSection() {
         try {
-            actionsWithWebElements.clickElement(".//a[@href='http://23076.gollos.com/xiaomi']");
-        } catch (Exception e){
+            xiaomiSectionLink.click();
+        } catch (Exception e) {
             logger.error("Can not click on Xiaomi section link");
             Assert.fail("Can not click on Xiaomi section link");
         }
