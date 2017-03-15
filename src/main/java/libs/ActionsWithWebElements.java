@@ -54,9 +54,8 @@ public class ActionsWithWebElements {
      * to click on subElement in pop up window using WebElement
      *
      * @param element
-     * @param subElement
      */
-    public void clickElementInPopUp(WebElement element, WebElement subElement) {
+    public void clickElementInPopUp(WebElement element) {
         try {
             String mainWindowHandle = driver.getWindowHandle();
             element.click();
@@ -68,7 +67,7 @@ public class ActionsWithWebElements {
                     driver.switchTo().window(popupHandle);
                 }
             }
-            subElement.click();
+//            subElement.click();
         } catch (Exception e) {
             logger.error("Can not work with pop up window");
             Assert.fail("Can not work with pop up window");
