@@ -10,15 +10,13 @@ public class BuyIphoneTest extends ParentTest {
 
     @Test
     public void buyExpensiveIphone() {
-        homePage.openHomePage();
+        homePage.open();
         homePage.clickIphoneSection();
-        iphonePage.clickSortFirstExpensive();
-        iphonePage.clickFirstItemInSection();
-        iphonePage.enterIphoneQuantity("5");
-        buyPopUpPage.clickGoToCartButton();
-        cartPage.clickCheckoutButton();
-
-        //checkAC();
+        itemPage.clickSortFirstExpensive();
+        itemPage.clickFirstItemInSection();
+        itemPage.enterItemsQuantity("5");
+        itemPage.clickBuyAndSwitchToPopUp();
+        buyPopUpPage.clickGoToBasketLink();
     }
 
 }

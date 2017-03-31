@@ -21,9 +21,9 @@ public class BuyPopUpPage extends ParentPage {
      * Method to click on go to cart button
      * in buy item pop up window
      */
-    public void clickGoToCartButton() {
+    public void clickGoToBasketLink() {
         try {
-            actionsWithWebElements.clickElementInPopUp(buyItem, goToBasketLink);
+            actionsWithWebElements.clickElement(goToBasketLink);
         } catch (Exception e) {
             logger.error("Can not click on go to cart button");
             Assert.fail("Can not click on go to cart button");

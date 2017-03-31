@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class IphonePage extends ParentPage {
+public class ItemPage extends ParentPage {
 
     @FindBy(xpath = ".//div[@class='qty']/..//a")
     WebElement buyItem;
@@ -28,11 +28,11 @@ public class IphonePage extends ParentPage {
     @FindBy(xpath = ".//a[text()='наличию']")
     WebElement sortFirstAvailableDropdown;
 
-    public IphonePage(WebDriver driver) {
+    public ItemPage(WebDriver driver) {
         super(driver);
     }
 
-    public void enterIphoneQuantity(String quantity) {
+    public void enterItemsQuantity(String quantity) {
         try {
             actionsWithWebElements.enterText(quantityOfItemsInput, quantity);
         } catch (Exception e) {
@@ -105,6 +105,10 @@ public class IphonePage extends ParentPage {
             logger.error("Can not sort by available");
             Assert.fail("Can not sort by available");
         }
+    }
+
+    public void clickBuyAndSwitchToPopUp() {
+        actionsWithWebElements.switchToPopUp(buyItem);
     }
 
 }

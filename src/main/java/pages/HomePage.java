@@ -25,6 +25,17 @@ public class HomePage extends ParentPage {
     @FindBy(xpath = ".//a[@href='http://23076.gollos.com/xiaomi']")
     WebElement xiaomiSectionLink;
 
+    @FindBy(xpath = ".//a[@title='UAH']")
+    WebElement currencyUAH;
+
+    @FindBy(xpath = ".//a[@title='USD']")
+    WebElement currencyUSD;
+
+    @FindBy(xpath = ".//a[@title='RUB']")
+    WebElement currencyRUB;
+
+    @FindBy(xpath = ".//a[@title='EUR']")
+    WebElement currencyEUR;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -57,7 +68,7 @@ public class HomePage extends ParentPage {
     /**
      * Method to open home page
      */
-    public void openHomePage() {
+    public void open() {
         try {
             open("http://23076.gollos.com/");
         } catch (Exception e) {
@@ -112,6 +123,22 @@ public class HomePage extends ParentPage {
             logger.error("Can not click on Xiaomi section link");
             Assert.fail("Can not click on Xiaomi section link");
         }
+    }
+
+    public void setCurrencyUAH() {
+        actionsWithWebElements.clickHiddenDropDownElement(currencyUAH);
+    }
+
+    public void setCurrencyUSD() {
+        actionsWithWebElements.clickHiddenDropDownElement(currencyUSD);
+    }
+
+    public void setCurrencyEUR() {
+        actionsWithWebElements.clickHiddenDropDownElement(currencyEUR);
+    }
+
+    public void setCurrencyRUB() {
+        actionsWithWebElements.clickHiddenDropDownElement(currencyRUB);
     }
 
 }

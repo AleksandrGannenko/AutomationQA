@@ -55,7 +55,7 @@ public class ActionsWithWebElements {
      *
      * @param element
      */
-    public void clickElementInPopUp(WebElement element) {
+    public void switchToPopUp(WebElement element) {
         try {
             String mainWindowHandle = driver.getWindowHandle();
             element.click();

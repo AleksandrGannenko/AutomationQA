@@ -40,9 +40,10 @@ public class ParentTest {
     protected RegistrationPage registrationPage;
     protected LoginPage loginPage;
     protected HomePage homePage;
-    protected IphonePage iphonePage;
+    protected ItemPage itemPage;
     protected CartPage cartPage;
     protected BuyPopUpPage buyPopUpPage;
+    protected GmailPage gmailPage;
 
     public ParentTest(String browser) {
         this.browser = browser;
@@ -108,9 +109,10 @@ public class ParentTest {
         registrationPage = new RegistrationPage(driver);
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
-        iphonePage = new IphonePage(driver);
+        itemPage = new ItemPage(driver);
         cartPage = new CartPage(driver);
         buyPopUpPage = new BuyPopUpPage(driver);
+        gmailPage = new GmailPage(driver);
 
 
     }
