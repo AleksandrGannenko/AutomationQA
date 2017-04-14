@@ -29,7 +29,7 @@ public class GmailSendLetter extends ParentTest{
 //        driver.findElement(By.xpath(".//input[@id='skipChallenge']")).click();
 //        driver.findElement(By.xpath(".//form[@action='/signin/challenge/pwd/1']")).click();
 
-        driver.findElement(By.xpath(".//input[@id='password']")).sendKeys("no2_paSSoK");
+        driver.findElement(By.xpath(".//input[@id='password']")).sendKeys("***");
         driver.findElement(By.xpath(".//input[@id='submit']")).click();
         driver.findElement(By.xpath(".//a[contains(text(),'Почта')]")).click();
 //        driver.findElement(By.xpath(".//div[contains(text(),'НАПИСАТЬ')]")).click();
